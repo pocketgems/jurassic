@@ -214,6 +214,9 @@ namespace Jurassic.Library
             {
                 // Call the function.
                 return this.body(this.Engine, this.ParentScope, thisObject, this, argumentValues);
+            } catch (JavaScriptException e) {
+                System.Diagnostics.Debug.Write(e.Message + " at " + e.SourcePath + ":" + e.LineNumber);
+                throw e;
             }
             finally
             {
